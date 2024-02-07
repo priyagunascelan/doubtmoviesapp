@@ -32,7 +32,7 @@ Feature: Test login page
     And I click on the login button
     Then an error message '*Username or password is invalid' should be visible
 
-  Scenario: Login with invalid inputs
+  Scenario: Login with invalid pin
 
     Given I am on the login page
     When I enter a valid User ID

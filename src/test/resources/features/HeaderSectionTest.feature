@@ -12,6 +12,7 @@ Feature: Test Header Section
     Then I should be redirected to the homepage
     When I test website logo is display
     Then I test Navbar elements
+
   Scenario: Test the Header Section Functionalities
     Given I am on the login page
     When I enter a valid User ID

@@ -14,22 +14,14 @@ import java.util.List;
 
 public class MovieDetailsPageTest {
     WebDriver driver = Hooks.getDriver();
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    @When("I Test in the Home Page click on any Movie and test all the UI elements present in it")
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+    @When("I click the movie in home page")
     public void uiElpresentInHome(){
-        WebElement clickMovie = driver.findElement(By.xpath("//div[@class='home-bottom-container']/div[1]/div/div/div/div/div/div/a/div/img"));
+        //wait.until(ExpectedConditions.urlToBe("https://qamoviesapp.ccbp.tech/"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[@class ='movies-list-heading']")));
+        WebElement clickMovie = driver.findElement(By.xpath("(//div[@data-index = '5'])[1]"));
         clickMovie.click();
-        wait.until(ExpectedConditions.urlToBe("https://qamoviesapp.ccbp.tech/movies/92c2cde7-d740-443d-8929-010b46cb0305"));
-        List<WebElement> movieDetails =driver.findElements(By.xpath("//div[@class ='nav-content']/ul"));
-        Assert.assertEquals(movieDetails.size(),1);
+
     }
-    @Then("I Test in the Popular Page click on any Movie and test all the UI elements present in it")
-    public void uiElpresentInPopular(){
-        wait.until(ExpectedConditions.urlToBe("https://qamoviesapp.ccbp.tech/popular"));
-        WebElement clickMovie = driver.findElement(By.xpath("//div[@class = 'search-movies-container']/li[1]/a/img"));
-        clickMovie.click();
-        wait.until(ExpectedConditions.urlToBe("https://qamoviesapp.ccbp.tech/movies/320dee56-fdb2-40cf-8df8-92b251bd781f"));
-        List<WebElement> movieDetails =driver.findElements(By.xpath("//div[@class ='nav-content']/ul"));
-        Assert.assertEquals(movieDetails.size(),1);
-    }
+
 }

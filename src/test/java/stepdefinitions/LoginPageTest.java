@@ -80,6 +80,8 @@ public class LoginPageTest {
         Assert.assertEquals(actualText, "*Username or password is invalid");
     }
 
+
+
     @Then("an error message '*username and password didn't match' should be visible")
     public void verifyInvalidInputsErrorText() {
         String actualText = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("error-message"))).getText();
